@@ -19,6 +19,9 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
+    [Header("InGame")]
+    [SerializeField] private GameObject pauseMenu;
+
     private void Awake()
     {
         instance = this;
@@ -40,11 +43,12 @@ public class UIManager : MonoBehaviour
                 break;
 
             case GameManager.GameStates.InGame:
-
+                if(GameManager.Instance.GameState == GameManager.GameStates.Pause)
+                    pauseMenu.SetActive(false);
                 break;
 
             case GameManager.GameStates.Pause:
-
+                pauseMenu.SetActive(true);
                 break;
 
             case GameManager.GameStates.Win:
@@ -54,8 +58,35 @@ public class UIManager : MonoBehaviour
             case GameManager.GameStates.Gameover:
 
                 break;
+
             default:
                 Debug.LogError(gameState + " state not found in switch statement.");
+                break;
+        }
+    }
+
+    public void OnButtonClick(string button)
+    {
+        switch(button)
+        {
+            case "play":
+                GameManager.Instance.GameState = GameManager.GameStates.InGame;
+                break;
+
+            case "continue":
+                GameManager.Instance.GameState = GameManager.GameStates.InGame;
+                break;
+
+            case "mainmenu":
+                GameManager.Instance.GameState = GameManager.GameStates.MainMenu;
+                break;
+
+            case "quit":
+                GameManager.Instance.QuitGame();
+                break;
+
+            default:
+                Debug.LogError(button + " not found in switch statement.");
                 break;
         }
     }

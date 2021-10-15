@@ -5,14 +5,25 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    void Start()
+    private void Start()
     {
         
     }
 
 
-    void Update()
+    private void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause();
+        }
+    }
+
+    private void Pause()
+    {
+        if(GameManager.Instance.GameState == GameManager.GameStates.InGame)
+            GameManager.Instance.GameState = GameManager.GameStates.Pause;
+        else if(GameManager.Instance.GameState == GameManager.GameStates.Pause)
+            GameManager.Instance.GameState = GameManager.GameStates.InGame;
     }
 }

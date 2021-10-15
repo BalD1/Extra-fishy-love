@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class GameManager : MonoBehaviour
         }
     }
     #endregion
+
+    public string SceneName { get => SceneManager.GetActiveScene().name; }
 
     #region GameStates
 
@@ -44,23 +47,35 @@ public class GameManager : MonoBehaviour
             switch(value)
             {
                 case GameStates.MainMenu:
+                    if(gameState != GameStates.MainMenu && SceneName.Equals("MainScene"))
+                        SceneManager.LoadScene("MainMenu");
 
+                    Time.timeScale = 0;
                     break;
 
                 case GameStates.InGame:
+                    if (gameState == GameStates.MainMenu && SceneName.Equals("MainMenu"))
+                        SceneManager.LoadScene("MainScene");
 
+                    if (gameState == GameStates.Pause)
+                    {
+                    }
+                        Time.timeScale = 1;
                     break;
 
                 case GameStates.Pause:
 
+                    Time.timeScale = 0;
                     break;
 
                 case GameStates.Win:
 
+                    Time.timeScale = 0;
                     break;
 
                 case GameStates.Gameover:
 
+                    Time.timeScale = 0;
                     break;
 
                 default:
@@ -81,5 +96,16 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        if(SceneName.Equals("MainMenu"))
+            GameState = GameStates.MainMenu;
+        else
+            GameState = GameStates.InGame;
     }
+
+    public void QuitGame()
+    {
+        //
+        Application.Quit();
+    }
+
 }
