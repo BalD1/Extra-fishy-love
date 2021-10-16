@@ -11,6 +11,17 @@ public class Player : Characters
 
     [Header("Misc")]
     [SerializeField] private Camera mainCamera;
+    [SerializeField] private GameObject interactionButton;
+
+    private bool hasSeaweed;
+    public bool HasSeaWeed { 
+        get => hasSeaweed;
+        set
+        {
+            hasSeaweed = value;
+            //
+        }
+    }
 
     private float xDirection;
     private Vector2 direction;
@@ -37,6 +48,14 @@ public class Player : Characters
                 Jump();
 
             GetMousePosition();
+
+            if (interactionButton.activeSelf)
+            {
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    HasSeaWeed = true;
+                }
+            }
         }
     }
 
@@ -104,8 +123,26 @@ public class Player : Characters
             weaponScale.y = -1;
             weapon.transform.localScale = weaponScale;
         }
+    }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag.Equals("Seaweed"))
+        {
+            interactionButton.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                HasSeaWeed = true;
+                Debug.Log("hasweed");
+            }
+        }
+    }
 
-
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.tag.Equals("Seaweed"))
+        {
+            interactionButton.SetActive(false);
+        }
     }
 }

@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject player;
     public GameObject Player { get => player; }
+    [SerializeField] private GameObject fishTank;
+    public GameObject FishTank { get => fishTank; }
     public string SceneName { get => SceneManager.GetActiveScene().name; }
 
     #region GameStates
@@ -102,6 +104,17 @@ public class GameManager : MonoBehaviour
             GameState = GameStates.MainMenu;
         else
             GameState = GameStates.InGame;
+    }
+    public float GetAnimationLength(Animator animator, string searchedAnimation)
+    {
+        AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
+        foreach(AnimationClip clip in clips)
+        {
+            if(clip.name.Equals(searchedAnimation))
+                return clip.length;
+        }
+        Debug.LogError(searchedAnimation + " not found in " + animator + ".");
+        return 0;
     }
 
     public void QuitGame()

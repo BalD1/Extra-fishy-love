@@ -263,6 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  fishTank: {fileID: 5807363100180854572, guid: b8c6325bbccdc0d4eb519816ebdc7201, type: 3}
   gameState: 0
 --- !u!1 &1498102639082492776
 GameObject:

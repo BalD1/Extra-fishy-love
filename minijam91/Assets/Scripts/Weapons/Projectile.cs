@@ -20,8 +20,8 @@ public class Projectile : MonoBehaviour
         if (collision.tag.Equals("Enemy"))
         {
             collision.GetComponent<Enemy>().TakeDamages(damagesToInflict);
-            this.gameObject.SetActive(false);
         }
+            this.gameObject.SetActive(false);
     }
 
     private void OnBecameInvisible()

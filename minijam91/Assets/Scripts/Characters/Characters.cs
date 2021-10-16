@@ -8,6 +8,8 @@ public class Characters : MonoBehaviour
     [SerializeField] protected CharacterScriptable character;
     protected CharacterScriptable.stats characterStats;
 
+    public CharacterScriptable.stats GetStats { get => characterStats; }
+
     [SerializeField] protected SpriteRenderer sprite;
     [SerializeField] protected Animator animator;
     [SerializeField] protected Rigidbody2D body;
