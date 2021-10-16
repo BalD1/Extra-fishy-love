@@ -24,5 +24,13 @@ public class WeaponScriptable : ScriptableObject
                   "FireRate : " + WeaponStats.fireRate + "                " +
                   "Damages : " + WeaponStats.damages);
     }
+
+    public void PrintWeapon(WeaponScriptable.stats targetStats)
+    {
+        Debug.Log(targetStats.name + " : \n" +
+             "Ammo : " + targetStats.currentAmmo + " / " + targetStats.maxAmmo + "                " +
+             "FireRate : " + targetStats.fireRate + "                " +
+             "Damages : " + targetStats.damages);
+    }
     #endregion
 }

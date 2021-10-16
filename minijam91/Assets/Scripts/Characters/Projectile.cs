@@ -20,6 +20,7 @@ public class Projectile : MonoBehaviour
         if (collision.tag.Equals("Enemy"))
         {
             collision.GetComponent<Enemy>().TakeDamages(damagesToInflict);
+            collision.GetComponent<Enemy>().PrintCharacter();
             this.gameObject.SetActive(false);
         }
     }

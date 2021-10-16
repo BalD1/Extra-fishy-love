@@ -49,13 +49,9 @@ public class Characters : MonoBehaviour
     }
 
     #region prints
-    protected void PrintCharacter()
+    public void PrintCharacter()
     {
-        character.PrintCharacter();
-    }
-    protected void PrintCharacter(Characters target)
-    {
-        target.PrintCharacter();
+        character.PrintCharacter(characterStats);
     }
     #endregion
 }

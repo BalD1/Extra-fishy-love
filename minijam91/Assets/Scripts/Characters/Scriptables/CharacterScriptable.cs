@@ -25,9 +25,20 @@ public class CharacterScriptable : ScriptableObject
                   "Speed : " + CharacterStats.speed + "                " +
                   "Damages : " + CharacterStats.damages);
     }
+    public void PrintCharacter(CharacterScriptable.stats targetStats)
+    {
+        Debug.Log(targetStats.name + " : \n" +
+                  "HP : " + targetStats.currentHP + " / " + targetStats.maxHP + "                " +
+                  "Speed : " + targetStats.speed + "                " +
+                  "Damages : " + targetStats.damages);
+    }
     public void PrintCharacterHP()
     {
         Debug.Log(CharacterStats.name + " : " + CharacterStats.currentHP + " / " + CharacterStats.maxHP);
+    }
+    public void PrintCharacterHP(CharacterScriptable.stats targetStats)
+    {
+        Debug.Log(targetStats.name + " : " + targetStats.currentHP + " / " + targetStats.maxHP);
     }
     #endregion
 }

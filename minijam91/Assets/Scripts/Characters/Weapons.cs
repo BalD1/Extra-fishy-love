@@ -12,6 +12,7 @@ public class Weapons : MonoBehaviour
 
     private void Start()
     {
+        weaponStats = weapon.WeaponStats;
         canFire = true;
     }
 
@@ -45,11 +46,7 @@ public class Weapons : MonoBehaviour
     #region prints
     protected void PrintWeapon()
     {
-        weapon.PrintWeapon();
-    }
-    protected void PrintCharacter(Weapons target)
-    {
-        target.PrintWeapon();
+        weapon.PrintWeapon(weaponStats);
     }
     #endregion
 }
