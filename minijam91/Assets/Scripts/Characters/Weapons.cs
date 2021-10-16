@@ -26,7 +26,7 @@ public class Weapons : MonoBehaviour
     {
         if(canFire)
         {
-            if(Input.GetMouseButtonDown(0))
+            if(Input.GetMouseButton(0))
             {
                 canFire = false;
                 Projectile firedProjectile = PoolManager.Instance.SpawnFromPool(PoolManager.tags.Laser, firePoint.transform.position, this.transform.rotation).GetComponent<Projectile>();

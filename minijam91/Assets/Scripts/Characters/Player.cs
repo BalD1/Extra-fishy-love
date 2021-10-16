@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : Characters
 {
+    [Space]
+    [Header("Player Related")]
     [SerializeField] private GameObject arm;
     [SerializeField] private GameObject weapon;
 

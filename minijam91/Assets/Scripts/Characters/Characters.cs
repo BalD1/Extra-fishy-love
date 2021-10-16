@@ -12,10 +12,20 @@ public class Characters : MonoBehaviour
     [SerializeField] protected Animator animator;
     [SerializeField] protected Rigidbody2D body;
 
+    [Header("Damages Flash")]
+    [SerializeField] protected float flashTime = 0.125f;
+    [SerializeField] protected Material flashMaterial;
+    [SerializeField] protected Material originalMaterial;
+    protected Coroutine flashCourtine;
+
+    protected bool invincible;
+
     protected void CallStart()
     {
         characterStats = character.CharacterStats;
     }
+
+    #region Movements
 
     protected void Translate(Vector2 direction)
     {
@@ -23,22 +33,41 @@ public class Characters : MonoBehaviour
     }
     protected void TranslateTo(Transform target)
     {
-        this.transform.Translate(target.position);
+        Vector2 direction = target.transform.position - this.transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        body.rotation = angle;
+        body.MovePosition((Vector2)this.transform.position + (direction * characterStats.speed * Time.deltaTime));
     }
+
+    #endregion
+
+    #region Damages / Heal
 
     public void TakeDamages(int amount)
     {
-        ChangeHP(-amount);
+        if(!invincible && amount != 0)
+        {
+            amount = Mathf.Abs(amount);
+            ChangeHP(-amount);
+            DamagesFeedback();
+            if (characterStats.invincibleTime > 0)
+            {
+                invincible = true;
+                StartCoroutine(Invincibility(characterStats.invincibleTime));
+            }
+        }
     }
 
     public void Heal(int amount)
     {
+        amount = Mathf.Abs(amount);
         ChangeHP(amount);
     }
 
     private void ChangeHP(int amount)
     {
         characterStats.currentHP = Mathf.Clamp(characterStats.currentHP + amount, 0, characterStats.maxHP);
+        PrintCharacterHP();
         if(characterStats.currentHP <= 0)
             Death();
     }
@@ -48,10 +77,37 @@ public class Characters : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+    protected void DamagesFeedback()
+    {
+        if(flashCourtine != null)
+            StopCoroutine(flashCourtine);
+
+        flashCourtine = StartCoroutine(Flash(flashTime));
+    }
+
+    private IEnumerator Flash(float time)
+    {
+        this.sprite.material = flashMaterial;
+        yield return new WaitForSeconds(time);
+        this.sprite.material = originalMaterial;
+    }
+
+    private IEnumerator Invincibility(float time)
+    {
+        yield return new WaitForSeconds(time);
+        invincible = false;
+    }
+
+    #endregion
+
     #region prints
     public void PrintCharacter()
     {
         character.PrintCharacter(characterStats);
+    }
+    public void PrintCharacterHP()
+    {
+        character.PrintCharacterHP(characterStats);
     }
     #endregion
 }

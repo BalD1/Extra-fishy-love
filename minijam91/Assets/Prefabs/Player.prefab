@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 490963060}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -247,6 +247,9 @@ MonoBehaviour:
   sprite: {fileID: 26022537}
   animator: {fileID: 490963062}
   body: {fileID: 490963061}
+  flashTime: 0.125
+  flashMaterial: {fileID: 2100000, guid: 8347b35dd61b5454eaf3c799370e678e, type: 2}
+  originalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   arm: {fileID: 8398145253074723794}
   weapon: {fileID: 3599187018405936607}
   mainCamera: {fileID: 0}

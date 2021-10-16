@@ -537,6 +537,10 @@ PrefabInstance:
       propertyPath: soundSlider
       value: 
       objectReference: {fileID: 808578687}
+    - target: {fileID: 1498102638872257843, guid: 2f40dd409e1fd4c4d800e39df1e75111, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1698869052}
     - target: {fileID: 1498102639367037145, guid: 2f40dd409e1fd4c4d800e39df1e75111, type: 3}
       propertyPath: pauseMenu
       value: 
@@ -1030,17 +1034,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy1
       objectReference: {fileID: 0}
-    - target: {fileID: 2912737101332834648, guid: d51f3730a50533244b87f7c24e71a234, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
     - target: {fileID: 2912737101332834650, guid: d51f3730a50533244b87f7c24e71a234, type: 3}
       propertyPath: m_RootOrder
       value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 2912737101332834650, guid: d51f3730a50533244b87f7c24e71a234, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.714
+      value: 7.3
       objectReference: {fileID: 0}
     - target: {fileID: 2912737101332834650, guid: d51f3730a50533244b87f7c24e71a234, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1076,6 +1076,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2912737101332834650, guid: d51f3730a50533244b87f7c24e71a234, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746844736133670357, guid: d51f3730a50533244b87f7c24e71a234, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746844736133670357, guid: d51f3730a50533244b87f7c24e71a234, type: 3}
+      propertyPath: m_FlipY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5746844736465712937, guid: d51f3730a50533244b87f7c24e71a234, type: 3}
+      propertyPath: m_Constraints
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3447,6 +3459,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1697349541}
   m_CullTransparentMesh: 0
+--- !u!1 &1698869052 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7470620901475900932, guid: c95d445173fe69347b469a166d0b4ecd, type: 3}
+  m_PrefabInstance: {fileID: 1800595502}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1762607584
 GameObject:
   m_ObjectHideFlags: 0
@@ -3577,7 +3594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7470620901475900934, guid: c95d445173fe69347b469a166d0b4ecd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -6.43
       objectReference: {fileID: 0}
     - target: {fileID: 7470620901475900934, guid: c95d445173fe69347b469a166d0b4ecd, type: 3}
       propertyPath: m_LocalPosition.y

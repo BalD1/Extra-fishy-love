@@ -14,6 +14,7 @@ public class CharacterScriptable : ScriptableObject
         public float speed;
         public float jumpSpeed;
         public int damages;
+        public float invincibleTime;
     }
     public stats CharacterStats;
 
@@ -23,14 +24,16 @@ public class CharacterScriptable : ScriptableObject
         Debug.Log(CharacterStats.name + " : \n" +
                   "HP : " + CharacterStats.currentHP + " / " + CharacterStats.maxHP + "                " +
                   "Speed : " + CharacterStats.speed + "                " +
-                  "Damages : " + CharacterStats.damages);
+                  "Damages : " + CharacterStats.damages + "                " +
+                  "Invincibility time : " + CharacterStats.invincibleTime);
     }
     public void PrintCharacter(CharacterScriptable.stats targetStats)
     {
         Debug.Log(targetStats.name + " : \n" +
                   "HP : " + targetStats.currentHP + " / " + targetStats.maxHP + "                " +
                   "Speed : " + targetStats.speed + "                " +
-                  "Damages : " + targetStats.damages);
+                  "Damages : " + targetStats.damages + "                " +
+                  "Invincibility time : " + targetStats.invincibleTime);
     }
     public void PrintCharacterHP()
     {

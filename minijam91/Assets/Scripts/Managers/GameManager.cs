@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    [SerializeField] private GameObject player;
+    public GameObject Player { get => player; }
     public string SceneName { get => SceneManager.GetActiveScene().name; }
 
     #region GameStates
