@@ -19,6 +19,13 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
+    [Header("Menus")]
+    [SerializeField] private GameObject optionsMenu;
+    public GameObject OptionsMenu
+    {
+        get => optionsMenu;
+    }
+
     [Header("InGame")]
     [SerializeField] private GameObject pauseMenu;
 

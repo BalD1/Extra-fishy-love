@@ -4,19 +4,60 @@ using UnityEngine;
 
 public class Player : Characters
 {
+    [SerializeField] private GameObject arm;
+    [SerializeField] private GameObject weapon;
+
+    [Header("Misc")]
+    [SerializeField] private Camera mainCamera;
+
+    private float xDirection;
+    private Vector2 direction;
+    private Vector3 mousePosition;
+    private Vector3 selfPosByCam;
 
     private void Start()
     {
-        PrintCharacter();
+        if(mainCamera == null)
+            mainCamera = Camera.main;
+
+        CallStart();
     }
 
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (GameManager.Instance.GameState == GameManager.GameStates.InGame)
         {
-            Pause();
+            if(Input.GetKeyDown(KeyCode.Escape))
+                Pause();
+
+            if(Input.GetButton("Jump"))
+                Jump();
+
+            GetMousePosition();
         }
+    }
+
+    private void FixedUpdate()
+    {
+        if(GameManager.Instance.GameState == GameManager.GameStates.InGame)
+        {
+            Movements();
+        }
+    }
+
+    private void Jump()
+    {
+        body.velocity = Vector2.up * characterStats.jumpSpeed;
+    }
+
+    private void Movements()
+    {
+        xDirection = Input.GetAxis("Horizontal");
+        direction.x = xDirection; 
+        direction.y = this.body.velocity.y;
+
+        Translate(direction);
     }
 
     private void Pause()
@@ -24,6 +65,45 @@ public class Player : Characters
         if(GameManager.Instance.GameState == GameManager.GameStates.InGame)
             GameManager.Instance.GameState = GameManager.GameStates.Pause;
         else if(GameManager.Instance.GameState == GameManager.GameStates.Pause)
-            GameManager.Instance.GameState = GameManager.GameStates.InGame;
+        {
+            if(UIManager.Instance.OptionsMenu.activeSelf)
+                UIManager.Instance.OptionsMenu.SetActive(false);
+            else
+                GameManager.Instance.GameState = GameManager.GameStates.InGame;
+        }
+    }
+
+    private void GetMousePosition()
+    {
+        mousePosition = Input.mousePosition;
+        mousePosition.z = 5f;
+
+        selfPosByCam = mainCamera.WorldToScreenPoint(this.transform.position);
+
+        mousePosition.x -= selfPosByCam.x;
+        mousePosition.y -= selfPosByCam.y;
+
+        float angle = Mathf.Atan2(mousePosition.y, mousePosition.x) * Mathf.Rad2Deg;
+
+        arm.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+        if(angle > -90f && angle < 90f)
+        {
+            sprite.flipX = false;
+            Vector2 weaponScale = weapon.transform.localScale;
+            weaponScale.y = 1;
+            weapon.transform.localScale = weaponScale;
+
+        }
+        else
+        {
+            sprite.flipX = true;
+            Vector2 weaponScale = weapon.transform.localScale;
+            weaponScale.y = -1;
+            weapon.transform.localScale = weaponScale;
+        }
+
+
+
     }
 }

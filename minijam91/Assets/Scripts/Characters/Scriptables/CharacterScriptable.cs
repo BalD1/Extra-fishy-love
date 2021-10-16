@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Character", menuName = "ScriptableObject/ Character Configuration")]
+[CreateAssetMenu(fileName = "Object", menuName = "ScriptableObject/ Character Configuration")]
 public class CharacterScriptable : ScriptableObject
 {
     [System.Serializable]
@@ -11,7 +11,8 @@ public class CharacterScriptable : ScriptableObject
         public string name;
         public int maxHP;
         public int currentHP;
-        public int speed;
+        public float speed;
+        public float jumpSpeed;
         public int damages;
     }
     public stats CharacterStats;
@@ -19,14 +20,14 @@ public class CharacterScriptable : ScriptableObject
     #region prints
     public void PrintCharacter()
     {
-        Debug.Log(name + " : \n" +
+        Debug.Log(CharacterStats.name + " : \n" +
                   "HP : " + CharacterStats.currentHP + " / " + CharacterStats.maxHP + "                " +
                   "Speed : " + CharacterStats.speed + "                " +
                   "Damages : " + CharacterStats.damages);
     }
     public void PrintCharacterHP()
     {
-        Debug.Log(name + " : " + CharacterStats.currentHP + " / " + CharacterStats.maxHP);
+        Debug.Log(CharacterStats.name + " : " + CharacterStats.currentHP + " / " + CharacterStats.maxHP);
     }
     #endregion
 }

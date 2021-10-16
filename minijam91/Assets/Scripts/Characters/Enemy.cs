@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Enemy : Characters
 {
-
-
+    private void Start()
+    {
+        CallStart();
+    }
 
 }
