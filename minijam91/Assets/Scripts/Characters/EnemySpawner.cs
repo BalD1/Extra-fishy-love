@@ -34,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        int randomEnemy = Random.Range(0, enemies.Count - 1);
+        int randomEnemy = Random.Range(0, enemies.Count);
         if(spawnEnemies)
             Instantiate(enemies[randomEnemy], this.transform.position, Quaternion.identity);
 

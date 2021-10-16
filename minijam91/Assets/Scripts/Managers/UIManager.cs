@@ -28,6 +28,7 @@ public class UIManager : MonoBehaviour
 
     [Header("InGame")]
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject gameoverMenu;
 
     private void Awake()
     {
@@ -63,7 +64,7 @@ public class UIManager : MonoBehaviour
                 break;
 
             case GameManager.GameStates.Gameover:
-
+                gameoverMenu.SetActive(true);
                 break;
 
             default:
@@ -86,6 +87,10 @@ public class UIManager : MonoBehaviour
 
             case "mainmenu":
                 GameManager.Instance.GameState = GameManager.GameStates.MainMenu;
+                break;
+
+            case "retry":
+                GameManager.Instance.ResetScene();
                 break;
 
             case "quit":
