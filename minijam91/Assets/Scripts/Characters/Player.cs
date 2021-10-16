@@ -111,17 +111,17 @@ public class Player : Characters
         if(angle > -90f && angle < 90f)
         {
             sprite.flipX = false;
-            Vector2 weaponScale = weapon.transform.localScale;
-            weaponScale.y = 1;
-            weapon.transform.localScale = weaponScale;
+            Vector2 armScale = arm.transform.localScale;
+            armScale.y = 1;
+            arm.transform.localScale = armScale;
 
         }
         else
         {
             sprite.flipX = true;
-            Vector2 weaponScale = weapon.transform.localScale;
-            weaponScale.y = -1;
-            weapon.transform.localScale = weaponScale;
+            Vector2 armScale = arm.transform.localScale;
+            armScale.y = -1;
+            arm.transform.localScale = armScale;
         }
     }
 

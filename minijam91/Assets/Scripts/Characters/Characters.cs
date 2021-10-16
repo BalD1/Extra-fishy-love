@@ -46,7 +46,7 @@ public class Characters : MonoBehaviour
     protected void TranslateTo(Transform target)
     {
         Vector2 direction = target.transform.position - this.transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
         body.rotation = angle;
         body.MovePosition((Vector2)this.transform.position + (direction * characterStats.speed * Time.deltaTime));
     }
