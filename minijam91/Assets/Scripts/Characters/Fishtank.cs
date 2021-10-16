@@ -22,7 +22,6 @@ public class Fishtank : Characters
         timerBeforeFishDies = timeBeforeFishDies;
         CallStart();
         StartCoroutine(AskTimer(maxTimeBeforeAsk));
-        _Death += FishtankDeath;
     }
 
     private void Update()
@@ -47,11 +46,6 @@ public class Fishtank : Characters
     {
         yield return new WaitForSeconds(time);
         AskForSeaweed();
-    }
-
-    private void FishtankDeath()
-    {
-        GameManager.Instance.GameState = GameManager.GameStates.Gameover;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

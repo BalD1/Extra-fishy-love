@@ -117,11 +117,6 @@ public class GameManager : MonoBehaviour
         return 0;
     }
 
-    public void ResetScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
     public void QuitGame()
     {
         //

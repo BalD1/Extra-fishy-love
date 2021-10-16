@@ -29,7 +29,7 @@ public class Enemy : Characters
         TranslateHUD();
     }
 
-    private void EnemyDeath()
+    protected void EnemyDeath()
     {
         Destroy(root);
     }
