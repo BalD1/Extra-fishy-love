@@ -64,7 +64,7 @@ public class UIManager : MonoBehaviour
                 break;
 
             case GameManager.GameStates.Gameover:
-
+                gameoverMenu.SetActive(true);
                 break;
 
             default:
