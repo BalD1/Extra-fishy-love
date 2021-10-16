@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ecb771b46217a984c9ea22044d21f492, type: 3}
-  m_Name: Player
+  m_Name: Enemy1
   m_EditorClassIdentifier: 
   CharacterStats:
-    name: Player
-    maxHP: 10
-    currentHP: 10
-    speed: 5
-    damages: 1
+    name: Enemy1
+    maxHP: 5
+    currentHP: 5
+    speed: 1
+    damages: 2

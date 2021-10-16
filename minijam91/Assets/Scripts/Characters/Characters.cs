@@ -5,6 +5,9 @@ using UnityEngine;
 public class Characters : MonoBehaviour
 {
     [SerializeField] protected CharacterScriptable character;
+    [SerializeField] protected SpriteRenderer sprite;
+    [SerializeField] protected Animator animator;
+    [SerializeField] protected Rigidbody2D body;
 
     protected void CallStart()
     {
