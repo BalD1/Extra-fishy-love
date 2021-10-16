@@ -23,4 +23,9 @@ public class Projectile : MonoBehaviour
             this.gameObject.SetActive(false);
         }
     }
+
+    private void OnBecameInvisible()
+    {
+        this.gameObject.SetActive(false);
+    }
 }

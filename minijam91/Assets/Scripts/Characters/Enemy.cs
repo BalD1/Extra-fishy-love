@@ -6,17 +6,26 @@ public class Enemy : Characters
 {
     [Space]
     [Header("Enemy Related")]
+    [SerializeField] private GameObject root;
+
     private Transform player;
 
     private void Start()
     {
         player = GameManager.Instance.Player.transform;
+        _Death += EnemyDeath;
         CallStart();
     }
 
     private void FixedUpdate()
     {
         TranslateTo(player);
+        TranslateHUD();
+    }
+
+    protected void EnemyDeath()
+    {
+        Destroy(root);
     }
 
     private void OnTriggerStay2D(Collider2D collision)

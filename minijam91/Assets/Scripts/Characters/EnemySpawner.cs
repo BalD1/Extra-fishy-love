@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] private List<GameObject> enemies;
+    [SerializeField] private bool spawnEnemies = true;
 
     [Header("Stats")]
     [SerializeField] private float minSpawnTime;
@@ -16,16 +17,12 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Transform targetPos;
     private Transform direction;
 
-    private bool moveToTarget;
-
     private void Start()
     {
         if(basePos == null)
             basePos = this.transform;
 
         direction = targetPos;
-
-        moveToTarget = true;
 
         SpawnEnemy();
     }
@@ -38,7 +35,8 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy()
     {
         int randomEnemy = Random.Range(0, enemies.Count - 1);
-        Instantiate(enemies[randomEnemy], this.transform.position, Quaternion.identity);
+        if(spawnEnemies)
+            Instantiate(enemies[randomEnemy], this.transform.position, Quaternion.identity);
 
         float spawnTime = Random.Range(minSpawnTime, maxSpawnTime);
         StartCoroutine(SpawnTimer(spawnTime));

@@ -97,4 +97,16 @@ public class UIManager : MonoBehaviour
                 break;
         }
     }
+
+    public void SetHPBar(ref GameObject bar, float max)
+    {
+        Slider fill = bar.GetComponent<Slider>();
+        fill.maxValue = max;
+        fill.value = max;
+    }
+    public void ModifyHPBar(ref GameObject bar, float health)
+    {
+        Slider fill = bar.GetComponent<Slider>();
+        fill.value = health;
+    }
 }
