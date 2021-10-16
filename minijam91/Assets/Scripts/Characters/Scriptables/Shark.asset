@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecb771b46217a984c9ea22044d21f492, type: 3}
+  m_Name: Shark
+  m_EditorClassIdentifier: 
+  CharacterStats:
+    name: Shark
+    maxHP: 10
+    currentHP: 10
+    speed: 0.2
+    jumpSpeed: 0
+    damages: 3
+    invincibleTime: 0
