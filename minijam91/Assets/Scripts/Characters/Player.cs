@@ -34,6 +34,7 @@ public class Player : Characters
             mainCamera = Camera.main;
 
         CallStart();
+        _Death += PlayerDeath;
     }
 
 
@@ -67,6 +68,8 @@ public class Player : Characters
         }
     }
 
+    #region Movements
+
     private void Jump()
     {
         body.velocity = Vector2.up * characterStats.jumpSpeed;
@@ -79,19 +82,6 @@ public class Player : Characters
         direction.y = this.body.velocity.y;
 
         Translate(direction);
-    }
-
-    private void Pause()
-    {
-        if(GameManager.Instance.GameState == GameManager.GameStates.InGame)
-            GameManager.Instance.GameState = GameManager.GameStates.Pause;
-        else if(GameManager.Instance.GameState == GameManager.GameStates.Pause)
-        {
-            if(UIManager.Instance.OptionsMenu.activeSelf)
-                UIManager.Instance.OptionsMenu.SetActive(false);
-            else
-                GameManager.Instance.GameState = GameManager.GameStates.InGame;
-        }
     }
 
     private void GetMousePosition()
@@ -124,6 +114,27 @@ public class Player : Characters
             arm.transform.localScale = armScale;
         }
     }
+
+    #endregion
+
+    private void Pause()
+    {
+        if(GameManager.Instance.GameState == GameManager.GameStates.InGame)
+            GameManager.Instance.GameState = GameManager.GameStates.Pause;
+        else if(GameManager.Instance.GameState == GameManager.GameStates.Pause)
+        {
+            if(UIManager.Instance.OptionsMenu.activeSelf)
+                UIManager.Instance.OptionsMenu.SetActive(false);
+            else
+                GameManager.Instance.GameState = GameManager.GameStates.InGame;
+        }
+    }
+
+    private void PlayerDeath()
+    {
+        GameManager.Instance.GameState = GameManager.GameStates.Gameover;
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
