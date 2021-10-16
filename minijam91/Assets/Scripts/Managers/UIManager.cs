@@ -26,6 +26,8 @@ public class UIManager : MonoBehaviour
         get => optionsMenu;
     }
 
+    [SerializeField] private GameObject gameoverMenu;
+
     [Header("InGame")]
     [SerializeField] private GameObject pauseMenu;
 
@@ -90,6 +92,10 @@ public class UIManager : MonoBehaviour
 
             case "quit":
                 GameManager.Instance.QuitGame();
+                break;
+
+            case "retry":
+                GameManager.Instance.ResetScene();
                 break;
 
             default:
