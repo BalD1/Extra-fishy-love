@@ -3666,18 +3666,6 @@ PrefabInstance:
       value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 1527677833965911047, guid: 095a58c5d88574a4ead9657540df30e3, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1527677833965911047, guid: 095a58c5d88574a4ead9657540df30e3, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1527677833965911047, guid: 095a58c5d88574a4ead9657540df30e3, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1527677833965911047, guid: 095a58c5d88574a4ead9657540df30e3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.2885338
       objectReference: {fileID: 0}
@@ -3720,30 +3708,6 @@ PrefabInstance:
     - target: {fileID: 5693875091976123772, guid: 095a58c5d88574a4ead9657540df30e3, type: 3}
       propertyPath: m_Name
       value: Bubbles - small & slow
-      objectReference: {fileID: 0}
-    - target: {fileID: 5693875091976123772, guid: 095a58c5d88574a4ead9657540df30e3, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6049897236169276273, guid: 095a58c5d88574a4ead9657540df30e3, type: 3}
-      propertyPath: moveWithTransform
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6774000764797980688, guid: 095a58c5d88574a4ead9657540df30e3, type: 3}
-      propertyPath: m_SortingLayer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6774000764797980688, guid: 095a58c5d88574a4ead9657540df30e3, type: 3}
-      propertyPath: m_SortingOrder
-      value: -10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6774000764797980688, guid: 095a58c5d88574a4ead9657540df30e3, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6774000764797980688, guid: 095a58c5d88574a4ead9657540df30e3, type: 3}
-      propertyPath: m_RenderAlignment
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 095a58c5d88574a4ead9657540df30e3, type: 3}
