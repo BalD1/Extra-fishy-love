@@ -11,7 +11,9 @@ public class IntroScenario1 : MonoBehaviour
     [SerializeField] private GameObject Beam;
     [SerializeField] private GameObject Cow;
     [SerializeField] private GameObject Cam1;
-    [SerializeField] private GameObject Cam2;
+    //[SerializeField] private GameObject Cam2;
+
+    private float xPos;
 
     private void Awake()
     {
@@ -30,13 +32,13 @@ public class IntroScenario1 : MonoBehaviour
         DialogueHolder1.SetActive(true);
         yield return new WaitUntil(() => !DialogueHolder1.activeInHierarchy);
         Cam1.SetActive(true);
-        Cam2.SetActive(false);
+        //Cam2.SetActive(false);
         UFOAnimator.Play("Scrolling");
         yield return new WaitForSeconds(5f);
         DialogueHolder2.SetActive(true);
-        Cam1.transform.position = Cam2.transform.position;
+        //Cam1.transform.position = Cam2.transform.position;
         Cam1.SetActive(false);
-        Cam2.SetActive(true);
+        //Cam2.SetActive(true);
 
         //DialogueHolder1.SetActive(true);
 
@@ -49,6 +51,9 @@ public class IntroScenario1 : MonoBehaviour
 
     private void Update()
     {
+        xPos = this.transform.position.x;
+        Cam1.transform.position = new Vector3(xPos, 0f, -25f);
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene("MainScene");
