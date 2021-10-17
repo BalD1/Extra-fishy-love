@@ -7,7 +7,11 @@ public class Player : Characters
     [Space]
     [Header("Player Related")]
     [SerializeField] private GameObject arm;
+    [SerializeField] private SpriteRenderer currentWeaponRenderer;
+    [SerializeField] private SpriteRenderer armRenderer;
     [SerializeField] private GameObject weapon;
+
+    private int playerSpriteOrder;
 
     [Header("Misc")]
     [SerializeField] private Camera mainCamera;
@@ -33,6 +37,7 @@ public class Player : Characters
         if(mainCamera == null)
             mainCamera = Camera.main;
 
+        playerSpriteOrder = this.sprite.sortingOrder;
         CallStart();
         _Death += PlayerDeath;
     }
@@ -104,6 +109,8 @@ public class Player : Characters
         if(angle > -90f && angle < 90f)
         {
             sprite.flipX = false;
+            armRenderer.sortingOrder = playerSpriteOrder + 2;
+            currentWeaponRenderer.sortingOrder = playerSpriteOrder + 1;
             Vector2 armScale = arm.transform.localScale;
             armScale.y = 1;
             arm.transform.localScale = armScale;
@@ -112,6 +119,8 @@ public class Player : Characters
         else
         {
             sprite.flipX = true;
+            armRenderer.sortingOrder = playerSpriteOrder - 1;
+            currentWeaponRenderer.sortingOrder = playerSpriteOrder - 2;
             Vector2 armScale = arm.transform.localScale;
             armScale.y = -1;
             arm.transform.localScale = armScale;
@@ -139,7 +148,7 @@ public class Player : Characters
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag.Equals("Seaweed"))
         {

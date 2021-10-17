@@ -71,13 +71,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 8020143640844766479, guid: 5f5ec4033f567f74189a5c08a7ffefc5, type: 3}
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 21300000, guid: 57cfd5410c381ad41bba38fc18f53fc0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 12.4, y: 17.52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -184,7 +184,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: 7aa5f3018c5a0cc4b8db692f98c8c76f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -330,6 +330,8 @@ MonoBehaviour:
   flashMaterial: {fileID: 2100000, guid: 8347b35dd61b5454eaf3c799370e678e, type: 2}
   originalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   arm: {fileID: 8398145253074723794}
+  currentWeaponRenderer: {fileID: 3599187019361343544}
+  armRenderer: {fileID: 5624778842669262179}
   weapon: {fileID: 3599187018405936607}
   mainCamera: {fileID: 0}
   interactionButton: {fileID: 9005500531256623626}
@@ -523,7 +525,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8398145253074723794}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.35, y: 2.81, z: 0}
+  m_LocalPosition: {x: -0.58, y: 2.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8054087617232437770}
@@ -565,8 +567,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.000025510788, y: 0}
+  m_SizeDelta: {x: -0.000051021576, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6398023780955036458
 CanvasRenderer:
@@ -862,13 +864,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 284c7d31573cc3b4387eddca5063a4ca, type: 3}
---- !u!4 &3599187018405936601 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1913931697828412967, guid: 284c7d31573cc3b4387eddca5063a4ca, type: 3}
-  m_PrefabInstance: {fileID: 3133739235474162686}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3599187018405936607 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1913931697828412961, guid: 284c7d31573cc3b4387eddca5063a4ca, type: 3}
+  m_PrefabInstance: {fileID: 3133739235474162686}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &3599187019361343544 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1913931699014507462, guid: 284c7d31573cc3b4387eddca5063a4ca, type: 3}
+  m_PrefabInstance: {fileID: 3133739235474162686}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3599187018405936601 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1913931697828412967, guid: 284c7d31573cc3b4387eddca5063a4ca, type: 3}
   m_PrefabInstance: {fileID: 3133739235474162686}
   m_PrefabAsset: {fileID: 0}
