@@ -29,9 +29,13 @@ public class Characters : MonoBehaviour
     protected delegate void Death();
     protected Death _Death;
 
+    protected delegate void TookDamages();
+    protected TookDamages _TookDamages;
+
     protected void CallStart()
     {
         _Death += Die;
+
         characterStats = character.CharacterStats;
         if(healthBar != null)
             UIManager.Instance.SetHPBar(ref healthBar, characterStats.maxHP);
@@ -68,7 +72,11 @@ public class Characters : MonoBehaviour
             amount = Mathf.Abs(amount);
             ChangeHP(-amount);
             DamagesFeedback();
-            if (characterStats.invincibleTime > 0)
+
+            if(_TookDamages != null)
+                _TookDamages();
+
+            if(characterStats.invincibleTime > 0)
             {
                 invincible = true;
                 StartCoroutine(Invincibility(characterStats.invincibleTime));

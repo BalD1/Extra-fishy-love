@@ -58,6 +58,9 @@ public class Player : Characters
                 }
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.R))
+            GameObject.FindObjectOfType<Fishtank>().TakeDamages(1);
     }
 
     private void FixedUpdate()

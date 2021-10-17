@@ -8,13 +8,17 @@ public class Fishtank : Characters
     [SerializeField] private float minTimeBeforeAsk;
     [SerializeField] private float maxTimeBeforeAsk;
 
+
     private float timeBeforeFishDies;
     private float timerBeforeFishDies;
 
     [SerializeField] private GameObject bubble;
+    [SerializeField] private SpriteRenderer breakRenderer;
     [SerializeField] private Animator fishAnimator;
+    [SerializeField] private Animator breakAnimator;
 
     private bool isAsking;
+    private Coroutine breakFlashCoroutine;
 
     private void Start()
     {
@@ -23,6 +27,7 @@ public class Fishtank : Characters
         CallStart();
         StartCoroutine(AskTimer(maxTimeBeforeAsk));
         _Death += FishtankDeath;
+        _TookDamages += BreakAnimation;
     }
 
     private void Update()
@@ -46,6 +51,36 @@ public class Fishtank : Characters
     private void FishtankDeath()
     {
         GameManager.Instance.GameState = GameManager.GameStates.Gameover;
+    }
+
+    private void BreakAnimation()
+    {
+        float healthPercentage = GameManager.Instance.GetPercentage(characterStats.currentHP, characterStats.maxHP);
+        BreakDamagesFeedback();
+
+        if(healthPercentage >= 75)
+            breakAnimator.SetTrigger("firstquarter");
+        else if(healthPercentage < 75 && healthPercentage >= 50)
+            breakAnimator.SetTrigger("secondquarter");
+        else if(healthPercentage < 50 && healthPercentage >= 25)
+            breakAnimator.SetTrigger("thirdquarter");
+        else if(healthPercentage < 25)
+            breakAnimator.SetTrigger("lastquarter");
+    }
+
+    private void BreakDamagesFeedback()
+    {
+        if(breakFlashCoroutine != null)
+            StopCoroutine(breakFlashCoroutine);
+
+        breakFlashCoroutine = StartCoroutine(Flash(flashTime));
+    }
+
+    private IEnumerator Flash(float time)
+    {
+        breakRenderer.material = flashMaterial;
+        yield return new WaitForSeconds(time);
+        breakRenderer.material = originalMaterial;
     }
 
 

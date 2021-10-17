@@ -402,7 +402,7 @@ MonoBehaviour:
   originalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   root: {fileID: 6347707639174180908}
   chancesToTargetFishtank: 5
-  minDistanceBeforeAttack: 2
+  minDistanceBeforeAttack: 1.8
   showDistance: 1
 --- !u!50 &6347707638970766681
 Rigidbody2D:

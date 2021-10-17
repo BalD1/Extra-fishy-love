@@ -117,6 +117,15 @@ public class GameManager : MonoBehaviour
         return 0;
     }
 
+    public float GetPercentage(float value, float maxOfValue)
+    {
+        return (value / maxOfValue) * 100;
+    }
+    public float GetPercentage(int value, int maxOfValue)
+    {
+        return GetPercentage((float)value, (float)maxOfValue);
+    }
+
     public void ResetScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
