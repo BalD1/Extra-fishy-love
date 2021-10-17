@@ -5587,6 +5587,7 @@ MonoBehaviour:
   boxCollider: {fileID: 5968261771548513148}
   body: {fileID: 5968261771548513149}
   speed: 10
+  explosion: {fileID: 7860345286404500007, guid: 70a0bb95d03cee946b5e7c4ae4d1a1c5, type: 3}
   damagesToInflict: 0
 --- !u!212 &5968261771548513151
 SpriteRenderer:
