@@ -4763,14 +4763,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5807363100983477090, guid: b8c6325bbccdc0d4eb519816ebdc7201, type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5807363101628219197, guid: b8c6325bbccdc0d4eb519816ebdc7201, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5807363101628219197, guid: b8c6325bbccdc0d4eb519816ebdc7201, type: 3}
-      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
