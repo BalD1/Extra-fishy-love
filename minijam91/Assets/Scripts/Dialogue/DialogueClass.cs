@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +18,10 @@ namespace DialogueSystem
             for (int i = 0; i < input.Length; i++)
             {
                 textHolder.text += input[i];
-                //AudioManager.Instance.Play2DSound(searchedAudio);
+                if (!Char.IsWhiteSpace(input,i))
+                {
+                    AudioManager.Instance.Play2DSound(searchedAudio);
+                }
                 yield return new WaitForSeconds(delay);
             }
 
