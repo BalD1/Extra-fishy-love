@@ -637,6 +637,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1208802683}
     - target: {fileID: 1498102639856547209, guid: 2f40dd409e1fd4c4d800e39df1e75111, type: 3}
+      propertyPath: pools.Array.data[1].size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1498102639856547209, guid: 2f40dd409e1fd4c4d800e39df1e75111, type: 3}
       propertyPath: pools.Array.data[2].size
       value: 2
       objectReference: {fileID: 0}

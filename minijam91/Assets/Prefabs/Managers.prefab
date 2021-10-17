@@ -489,8 +489,8 @@ MonoBehaviour:
   - name: Death1
     tag: 2
     prefab: {fileID: 4126910529899458182, guid: 50b227d43619cae4191d18cfbc24c3db, type: 3}
-    size: 30
+    size: 5
   - name: Death2
     tag: 3
     prefab: {fileID: 1312341047943324076, guid: de8a8d5a347da6040ab1537ac7e8be58, type: 3}
-    size: 30
+    size: 5
