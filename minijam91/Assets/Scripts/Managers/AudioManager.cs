@@ -49,9 +49,10 @@ public class AudioManager : MonoBehaviour
     public enum ClipsTags
     {
         // sounds
-        Clic,
-        Fire,
-        Explosion,
+        E01_attack,
+        E_01_die,
+        glasshit,
+        player_hurt,
 
         // musics
 

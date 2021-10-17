@@ -12,6 +12,8 @@ public class Enemy : Characters
     [SerializeField] private bool showDistance = true;
     private Transform target;
 
+    [SerializeField] [HideInInspector] private bool playSound;
+
     private enum EnemyState
     {
         Moving, 
@@ -45,6 +47,7 @@ public class Enemy : Characters
     private void EnemyDeath()
     {
         ParticleSystem deathParticles = PoolManager.Instance.SpawnFromPool(PoolManager.tags.Death1, this.transform.position, Quaternion.identity).GetComponent<ParticleSystem>();
+        AudioManager.Instance.Play2DSound(AudioManager.ClipsTags.E_01_die);
         deathParticles.Play();
         Destroy(root);
     }
@@ -68,6 +71,14 @@ public class Enemy : Characters
             state = EnemyState.Moving;
         }
         animator.SetTrigger("attack");
+
+        if(playSound)
+            PlayAttackSound();
+    }
+
+    private void PlayAttackSound()
+    {
+        AudioManager.Instance.Play2DSound(AudioManager.ClipsTags.E01_attack);
     }
 
     private void CheckDistance()

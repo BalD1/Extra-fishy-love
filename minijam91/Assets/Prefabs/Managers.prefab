@@ -90,8 +90,20 @@ MonoBehaviour:
   musicSlider: {fileID: 0}
   soundSlider: {fileID: 0}
   volMultiplier: 30
-  soundClips: []
-  musicClips: []
+  soundClips:
+  - clipName: E01_attack
+    clip: {fileID: 8300000, guid: 2ab5905619df88d4b8d7e6c403377f01, type: 3}
+  - clipName: E_01_die
+    clip: {fileID: 8300000, guid: 6edaaa826861afb42aeddc44fc06a1e6, type: 3}
+  - clipName: glasshit
+    clip: {fileID: 8300000, guid: 1491c4fe180d8494c84486e59ab36d4d, type: 3}
+  - clipName: player_hurt
+    clip: {fileID: 8300000, guid: b879dbc93d50e4c41ba72310251da152, type: 3}
+  musicClips:
+  - clipName: MainMusic
+    clip: {fileID: 8300000, guid: a7f460e3129efcd4782dabd8b05538c2, type: 3}
+  - clipName: MainMenu
+    clip: {fileID: 8300000, guid: 905e85150945ed94198ed9a69f5d35ea, type: 3}
 --- !u!1 &1498102638670168211
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,8 +144,8 @@ AudioSource:
   m_GameObject: {fileID: 1498102638670168211}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7795344750329091465, guid: 78b06932f42171b46aac831518760d28, type: 2}
+  m_audioClip: {fileID: 8300000, guid: a7f460e3129efcd4782dabd8b05538c2, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -305,7 +317,7 @@ AudioSource:
   m_GameObject: {fileID: 1498102639082492776}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 9128594056345628364, guid: 78b06932f42171b46aac831518760d28, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1

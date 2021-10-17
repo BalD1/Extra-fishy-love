@@ -55,6 +55,7 @@ public class Fishtank : Characters
 
     private void BreakAnimation()
     {
+        AudioManager.Instance.Play2DSound(AudioManager.ClipsTags.glasshit);
         float healthPercentage = GameManager.Instance.GetPercentage(characterStats.currentHP, characterStats.maxHP);
         BreakDamagesFeedback();
 
@@ -102,6 +103,7 @@ public class Fishtank : Characters
                 bubble.SetActive(false);    
                 isAsking = false;
                 timerBeforeFishDies = timeBeforeFishDies;
+                this.Heal(characterStats.maxHP / 4);
 
                 float timeBeforeAsk = Random.Range(minTimeBeforeAsk, maxTimeBeforeAsk);
                 StartCoroutine(AskTimer(timeBeforeAsk));

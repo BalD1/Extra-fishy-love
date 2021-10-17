@@ -40,6 +40,7 @@ public class Player : Characters
         playerSpriteOrder = this.sprite.sortingOrder;
         CallStart();
         _Death += PlayerDeath;
+        _TookDamages += DamagesTaken;
     }
 
 
@@ -140,6 +141,11 @@ public class Player : Characters
             else
                 GameManager.Instance.GameState = GameManager.GameStates.InGame;
         }
+    }
+
+    private void DamagesTaken()
+    {
+        AudioManager.Instance.Play2DSound(AudioManager.ClipsTags.player_hurt);
     }
 
     private void PlayerDeath()
