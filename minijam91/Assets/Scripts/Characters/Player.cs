@@ -160,7 +160,10 @@ public class Player : Characters
     {
         if (collision.tag.Equals("Seaweed"))
         {
-            interactionButton.SetActive(true);
+            if(!HasSeaWeed)
+                interactionButton.SetActive(true);
+            else
+                interactionButton.SetActive(false);
             if (Input.GetKeyDown(KeyCode.E))
             {
                 HasSeaWeed = true;

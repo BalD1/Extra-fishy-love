@@ -4717,10 +4717,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1178882643007300798, guid: b8c6325bbccdc0d4eb519816ebdc7201, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5807363100180854572, guid: b8c6325bbccdc0d4eb519816ebdc7201, type: 3}
       propertyPath: m_Name
       value: FishTank
@@ -4893,7 +4889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7740740202694634565, guid: 448a49e756c5ae943a4744d551bc36c3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 448a49e756c5ae943a4744d551bc36c3, type: 3}
