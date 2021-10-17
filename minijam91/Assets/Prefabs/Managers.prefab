@@ -90,8 +90,12 @@ MonoBehaviour:
   musicSlider: {fileID: 0}
   soundSlider: {fileID: 0}
   volMultiplier: 30
-  soundClips: []
-  musicClips: []
+  soundClips:
+  - clipName: PlayerVoice
+    clip: {fileID: 8300000, guid: 34d8045f6731edd4abb2b2894ff146f4, type: 3}
+  musicClips:
+  - clipName: InGameMusic
+    clip: {fileID: 8300000, guid: bd3272a8d0a6e124096b7d1fce67c54e, type: 3}
 --- !u!1 &1498102638670168211
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,6 +441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   optionsMenu: {fileID: 0}
   pauseMenu: {fileID: 0}
+  gameoverMenu: {fileID: 0}
 --- !u!1 &1498102639856547211
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public enum GameStates
     {
         MainMenu,
+        intro,
         InGame,
         Pause,
         Win,
