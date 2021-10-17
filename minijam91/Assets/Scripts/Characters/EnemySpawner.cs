@@ -10,6 +10,9 @@ public class EnemySpawner : MonoBehaviour
     [Header("Stats")]
     [SerializeField] private float minSpawnTime;
     [SerializeField] private float maxSpawnTime;
+    [SerializeField] private float timeBeforeReduce;
+    [SerializeField] private float amountToReduce;
+    [SerializeField] private int timesToReduceSpawnTime;
     private float spawnTimer;
 
     [SerializeField] private float speed;
@@ -26,7 +29,7 @@ public class EnemySpawner : MonoBehaviour
         direction = targetPos;
 
         spawnTimer = maxSpawnTime * 2;
-
+        StartCoroutine(ReduceSpawnTime(timeBeforeReduce, --timesToReduceSpawnTime));
     }
 
     private void Update()
@@ -57,5 +60,14 @@ public class EnemySpawner : MonoBehaviour
             direction = basePos;
         else if (this.transform.position.y >= basePos.position.y)
             direction = targetPos;
+    }
+
+    private IEnumerator ReduceSpawnTime(float time, int timesToReduce)
+    {
+        yield return new WaitForSeconds(time);
+        minSpawnTime -= amountToReduce;
+        maxSpawnTime -= amountToReduce;
+        if(timesToReduce > 0)
+            StartCoroutine(ReduceSpawnTime(timeBeforeReduce, --timesToReduceSpawnTime));
     }
 }
