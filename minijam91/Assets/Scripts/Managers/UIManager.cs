@@ -26,6 +26,11 @@ public class UIManager : MonoBehaviour
         get => optionsMenu;
     }
 
+    [Header("MainMenu")]
+    [SerializeField] private GameObject title;
+    [SerializeField] private GameObject menu;
+    [SerializeField] private Animator titleAnimator;
+
     [Header("InGame")]
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject gameoverMenu;
@@ -33,6 +38,23 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
+        if(GameManager.Instance.GameState == GameManager.GameStates.MainMenu)
+        {
+            float animTime = GameManager.Instance.GetAnimationLength(titleAnimator, "TitleAnim");
+            StartCoroutine(WaitForTitleAnimation(animTime));
+        }
+
+    }
+
+    private IEnumerator WaitForTitleAnimation(float time)
+    {
+        yield return new WaitForSeconds(time);
+        menu.SetActive(true);
+        title.SetActive(false);
     }
 
     /// <summary>

@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
                     if(gameState != GameStates.MainMenu && !SceneName.Equals("MainMenu"))
                         SceneManager.LoadScene("MainMenu");
 
-                    Time.timeScale = 0;
+                    Time.timeScale = 1;
                     break;
 
                 case GameStates.InGame:
