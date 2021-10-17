@@ -7,6 +7,7 @@ public class Player : Characters
     [Space]
     [Header("Player Related")]
     [SerializeField] private GameObject arm;
+    [SerializeField] private SpriteRenderer secondArm;
     [SerializeField] private SpriteRenderer currentWeaponRenderer;
     [SerializeField] private SpriteRenderer armRenderer;
     [SerializeField] private GameObject weapon;
@@ -114,6 +115,7 @@ public class Player : Characters
         {
             sprite.flipX = false;
             armRenderer.sortingOrder = playerSpriteOrder + 2;
+            secondArm.sortingOrder = playerSpriteOrder - 1;
             currentWeaponRenderer.sortingOrder = playerSpriteOrder + 1;
             Vector2 armScale = arm.transform.localScale;
             armScale.y = 1;
@@ -123,6 +125,7 @@ public class Player : Characters
         {
             sprite.flipX = true;
             armRenderer.sortingOrder = playerSpriteOrder - 1;
+            secondArm.sortingOrder = playerSpriteOrder + 1;
             currentWeaponRenderer.sortingOrder = playerSpriteOrder - 2;
             Vector2 armScale = arm.transform.localScale;
             armScale.y = -1;
