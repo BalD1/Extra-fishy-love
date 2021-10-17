@@ -17,6 +17,8 @@ public class IntroScenario : MonoBehaviour
 
     private IEnumerator introSequence()
     {
+        yield return new WaitForSeconds(0.5f);
+        DialogueHolder1.SetActive(true);
         yield return new WaitUntil(() => !DialogueHolder1.activeInHierarchy);
         FishAnimator.Play("SwimToUFO");
         yield return new WaitForSeconds(4f);
@@ -25,5 +27,13 @@ public class IntroScenario : MonoBehaviour
         yield return new WaitUntil(() => !DialogueHolder2.activeInHierarchy);
         Debug.Log("finish");
         SceneManager.LoadScene("MainScene");
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MainScene");
+        }
     }
 }
