@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
     [Header("Stats")]
     [SerializeField] private float minSpawnTime;
     [SerializeField] private float maxSpawnTime;
+    private float spawnTimer;
 
     [SerializeField] private float speed;
 
@@ -24,12 +25,20 @@ public class EnemySpawner : MonoBehaviour
 
         direction = targetPos;
 
+        spawnTimer = Random.Range(minSpawnTime, maxSpawnTime);
+
         SpawnEnemy();
     }
 
     private void Update()
     {
-        Movements();
+        if(GameManager.Instance.GameState == GameManager.GameStates.InGame)
+        {
+            Movements();
+            spawnTimer = spawnTimer - Time.deltaTime;
+            if(spawnTimer <= 0)
+                SpawnEnemy();
+        }
     }
 
     private void SpawnEnemy()
@@ -38,14 +47,7 @@ public class EnemySpawner : MonoBehaviour
         if(spawnEnemies)
             Instantiate(enemies[randomEnemy], this.transform.position, Quaternion.identity);
 
-        float spawnTime = Random.Range(minSpawnTime, maxSpawnTime);
-        StartCoroutine(SpawnTimer(spawnTime));
-    }
-
-    private IEnumerator SpawnTimer(float time)
-    {
-        yield return new WaitForSeconds(time);
-        SpawnEnemy();
+        spawnTimer = Random.Range(minSpawnTime, maxSpawnTime);
     }
 
     private void Movements()

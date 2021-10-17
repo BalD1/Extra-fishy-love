@@ -19,4 +19,4 @@ MonoBehaviour:
     speed: 0
     jumpSpeed: 0
     damages: 0
-    invincibleTime: 1
+    invincibleTime: 0.1
