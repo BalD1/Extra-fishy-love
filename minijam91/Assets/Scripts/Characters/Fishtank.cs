@@ -16,6 +16,9 @@ public class Fishtank : Characters
     [SerializeField] private SpriteRenderer breakRenderer;
     [SerializeField] private Animator fishAnimator;
     [SerializeField] private Animator breakAnimator;
+    [SerializeField] private ParticleSystem explosion;
+    [SerializeField] private Sprite explodedSprite;
+    [SerializeField] private GameObject breakObject;
 
     private bool isAsking;
     private Coroutine breakFlashCoroutine;
@@ -37,7 +40,10 @@ public class Fishtank : Characters
             timerBeforeFishDies = timerBeforeFishDies - Time.deltaTime;
 
             if(timerBeforeFishDies <= 0)
+            {
+                UIManager.Instance.gameOverText = "GAME OVER \n YOU DIDN'T FED THE FISH";
                 GameManager.Instance.GameState = GameManager.GameStates.Gameover;
+            }
         }
     }
 
@@ -50,6 +56,22 @@ public class Fishtank : Characters
 
     private void FishtankDeath()
     {
+        StopCoroutine(breakFlashCoroutine);
+        this.sprite.material = originalMaterial;
+        breakObject.SetActive(false);
+        this.animator.enabled = false;
+        this.sprite.sprite = explodedSprite;
+        explosion.Play();
+        GameManager.Instance.GameState = GameManager.GameStates.Cinematic;
+        AudioManager.Instance.StopMusic();
+        AudioManager.Instance.Play2DSound(AudioManager.ClipsTags.glassExplosion);
+        UIManager.Instance.gameOverText = "GAME OVER \n THE SHIP BROKE";
+        StartCoroutine(WaitBeforeGameover(3));
+    }
+
+    private IEnumerator WaitBeforeGameover(float time)
+    {
+        yield return new WaitForSecondsRealtime(time);
         GameManager.Instance.GameState = GameManager.GameStates.Gameover;
     }
 

@@ -152,6 +152,7 @@ public class Player : Characters
 
     private void PlayerDeath()
     {
+        UIManager.Instance.gameOverText = "GAME OVER \n YOU DIED";
         GameManager.Instance.GameState = GameManager.GameStates.Gameover;
     }
 

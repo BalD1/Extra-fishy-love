@@ -47,8 +47,8 @@ MonoBehaviour:
   - {fileID: 6347707639174180908, guid: d51f3730a50533244b87f7c24e71a234, type: 3}
   - {fileID: 2620856388692714247, guid: d91d60c7d6d23114b85723a9ce02216c, type: 3}
   spawnEnemies: 1
-  minSpawnTime: 1
-  maxSpawnTime: 2
+  minSpawnTime: 2
+  maxSpawnTime: 3
   speed: 5
   basePos: {fileID: 7740740202044964904}
   targetPos: {fileID: 7740740202073412044}

@@ -34,6 +34,9 @@ public class UIManager : MonoBehaviour
     [Header("InGame")]
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject gameoverMenu;
+    [SerializeField] private Text gameoverReason;
+
+    public string gameOverText = "GAME OVER";
 
     private void Awake()
     {
@@ -90,6 +93,9 @@ public class UIManager : MonoBehaviour
 
             case GameManager.GameStates.Gameover:
                 gameoverMenu.SetActive(true);
+                gameoverReason.text = gameOverText;
+                break;
+            case GameManager.GameStates.Cinematic:
                 break;
 
             default:

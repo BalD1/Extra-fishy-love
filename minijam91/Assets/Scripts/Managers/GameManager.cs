@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
         InGame,
         Pause,
         Win,
+        Cinematic,
         Gameover,
     }
     public GameStates gameState;
@@ -80,6 +81,9 @@ public class GameManager : MonoBehaviour
 
                 case GameStates.Gameover:
 
+                    Time.timeScale = 0;
+                    break;
+                case GameStates.Cinematic:
                     Time.timeScale = 0;
                     break;
 

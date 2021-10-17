@@ -53,6 +53,7 @@ public class AudioManager : MonoBehaviour
         E_01_die,
         glasshit,
         player_hurt,
+        glassExplosion,
 
         // musics
 

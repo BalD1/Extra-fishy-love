@@ -101,6 +101,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 1491c4fe180d8494c84486e59ab36d4d, type: 3}
   - clipName: player_hurt
     clip: {fileID: 8300000, guid: b879dbc93d50e4c41ba72310251da152, type: 3}
+  - clipName: glassExplosion
+    clip: {fileID: 8300000, guid: a9c54726f03e920449ada143d536c664, type: 3}
   musicClips:
   - clipName: InGameMusic
     clip: {fileID: 8300000, guid: bd3272a8d0a6e124096b7d1fce67c54e, type: 3}
@@ -453,6 +455,8 @@ MonoBehaviour:
   titleAnimator: {fileID: 0}
   pauseMenu: {fileID: 0}
   gameoverMenu: {fileID: 0}
+  gameoverReason: {fileID: 0}
+  gameOverText: GAME OVER
 --- !u!1 &1498102639856547211
 GameObject:
   m_ObjectHideFlags: 0
