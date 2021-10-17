@@ -17,6 +17,8 @@ public class IntroScenario : MonoBehaviour
 
     private IEnumerator introSequence()
     {
+        yield return new WaitForSeconds(0.5f);
+        DialogueHolder1.SetActive(true);
         yield return new WaitUntil(() => !DialogueHolder1.activeInHierarchy);
         FishAnimator.Play("SwimToUFO");
         yield return new WaitForSeconds(4f);
