@@ -32,7 +32,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private string masterVolParam = "MasterVolume";
     [SerializeField] private string musicVolParam = "MusicVolume";
     [SerializeField] private string soundVolParam = "SoundVolume";
-    
+
     [Header("Sliders")]
     [SerializeField] private Slider mainSlider;
     [SerializeField] private Slider musicSlider;
@@ -108,18 +108,28 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        mainSlider.value = PlayerPrefs.GetFloat("masterVolume");
-        OnMainSliderValueChanged(mainSlider.value);
+        if(mainSlider != null)
+        {
+            mainSlider.value = PlayerPrefs.GetFloat("masterVolume");
+            OnMainSliderValueChanged(mainSlider.value);
+            mainSlider.onValueChanged.AddListener(OnMainSliderValueChanged);
+        }
 
-        musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
-        OnMusicSliderValueChanged(musicSlider.value);
+        if(musicSlider != null)
+        {
+            musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
+            OnMusicSliderValueChanged(musicSlider.value);
+            musicSlider.onValueChanged.AddListener(OnMusicSliderValueChanged);
+        }
 
-        soundSlider.value = PlayerPrefs.GetFloat("soundsVolume");
-        OnSoundSliderValueChanged(soundSlider.value);
+        if(soundSlider != null)
+        {
+            soundSlider.value = PlayerPrefs.GetFloat("soundsVolume");
+            OnSoundSliderValueChanged(soundSlider.value);
+            soundSlider.onValueChanged.AddListener(OnSoundSliderValueChanged);
+        }
 
-        mainSlider.onValueChanged.AddListener(OnMainSliderValueChanged);
-        musicSlider.onValueChanged.AddListener(OnMusicSliderValueChanged);
-        soundSlider.onValueChanged.AddListener(OnSoundSliderValueChanged);
+
 
         if(PlayerPrefs.GetInt("masterMute") == 1)
             MuteAudio("masterMute", true);
@@ -186,7 +196,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    private void OnMainSliderValueChanged( float value)
+    private void OnMainSliderValueChanged(float value)
     {
         float newVol = 0;
         if(value > 0)
