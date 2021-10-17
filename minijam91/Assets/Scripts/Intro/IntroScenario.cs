@@ -19,7 +19,7 @@ public class IntroScenario : MonoBehaviour
     {
         yield return new WaitUntil(() => !DialogueHolder1.activeInHierarchy);
         FishAnimator.Play("SwimToUFO");
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         Player.transform.Rotate(-180.0f, 0.0f, -180.0f, Space.Self);
         DialogueHolder2.SetActive(true);
         yield return new WaitUntil(() => !DialogueHolder2.activeInHierarchy);
