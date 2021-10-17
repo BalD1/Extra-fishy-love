@@ -26,4 +26,12 @@ public class IntroScenario : MonoBehaviour
         Debug.Log("finish");
         SceneManager.LoadScene("MainScene");
     }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MainScene");
+        }
+    }
 }
