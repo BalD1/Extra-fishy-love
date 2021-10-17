@@ -38,6 +38,8 @@ public class PoolManager : MonoBehaviour
     {
         Enemy,
         Laser,
+        Death1,
+        Death2,
     }
 
     public List<Pool> pools;

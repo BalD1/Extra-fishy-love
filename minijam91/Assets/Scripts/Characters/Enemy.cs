@@ -44,6 +44,8 @@ public class Enemy : Characters
 
     private void EnemyDeath()
     {
+        ParticleSystem deathParticles = PoolManager.Instance.SpawnFromPool(PoolManager.tags.Death1, this.transform.position, Quaternion.identity).GetComponent<ParticleSystem>();
+        deathParticles.Play();
         Destroy(root);
     }
 
