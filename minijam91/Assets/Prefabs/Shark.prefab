@@ -187,6 +187,7 @@ MonoBehaviour:
   chancesToTargetFishtank: 4
   minDistanceBeforeAttack: 3.5
   showDistance: 1
+  bloodOnDeath: {fileID: 4126910529899458182, guid: 50b227d43619cae4191d18cfbc24c3db, type: 3}
   playSound: 0
 --- !u!50 &2620856388883564146
 Rigidbody2D:

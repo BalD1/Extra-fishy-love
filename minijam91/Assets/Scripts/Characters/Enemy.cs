@@ -10,6 +10,7 @@ public class Enemy : Characters
     [SerializeField] private int chancesToTargetFishtank = 5;
     [SerializeField] private float minDistanceBeforeAttack;
     [SerializeField] private bool showDistance = true;
+    [SerializeField] private GameObject bloodOnDeath;
     private Transform target;
 
     [SerializeField] [HideInInspector] private bool playSound;
@@ -46,9 +47,8 @@ public class Enemy : Characters
 
     private void EnemyDeath()
     {
-        ParticleSystem deathParticles = PoolManager.Instance.SpawnFromPool(PoolManager.tags.Death1, this.transform.position, Quaternion.identity).GetComponent<ParticleSystem>();
+        Instantiate(bloodOnDeath, this.transform.position, Quaternion.identity);
         AudioManager.Instance.Play2DSound(AudioManager.ClipsTags.E_01_die);
-        deathParticles.Play();
         Destroy(root);
     }
 
