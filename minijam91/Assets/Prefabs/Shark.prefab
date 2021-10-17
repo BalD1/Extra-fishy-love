@@ -121,7 +121,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: bdb3311710da53745b78ff4f5dee9bc6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -184,7 +184,9 @@ MonoBehaviour:
   flashMaterial: {fileID: 2100000, guid: 8347b35dd61b5454eaf3c799370e678e, type: 2}
   originalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   root: {fileID: 2620856388692714247}
-  chancesToTargetFishtank: 5
+  chancesToTargetFishtank: 4
+  minDistanceBeforeAttack: 3.5
+  showDistance: 1
 --- !u!50 &2620856388883564146
 Rigidbody2D:
   serializedVersion: 4

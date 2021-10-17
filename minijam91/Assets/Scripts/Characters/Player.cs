@@ -45,7 +45,7 @@ public class Player : Characters
             if(Input.GetKeyDown(KeyCode.Escape))
                 Pause();
 
-            if(Input.GetButton("Jump"))
+            if(Input.GetButton("Jump") || Input.GetKey(KeyCode.UpArrow))
                 Jump();
 
             GetMousePosition();

@@ -402,6 +402,8 @@ MonoBehaviour:
   originalMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   root: {fileID: 6347707639174180908}
   chancesToTargetFishtank: 5
+  minDistanceBeforeAttack: 2
+  showDistance: 1
 --- !u!50 &6347707638970766681
 Rigidbody2D:
   serializedVersion: 4
@@ -417,7 +419,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
