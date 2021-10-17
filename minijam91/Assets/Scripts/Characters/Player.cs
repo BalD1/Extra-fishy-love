@@ -10,6 +10,8 @@ public class Player : Characters
     [SerializeField] private SpriteRenderer currentWeaponRenderer;
     [SerializeField] private SpriteRenderer armRenderer;
     [SerializeField] private GameObject weapon;
+    [SerializeField] private GameObject seaWeed;
+
 
     private int playerSpriteOrder;
 
@@ -22,6 +24,7 @@ public class Player : Characters
         get => hasSeaweed;
         set
         {
+            seaWeed.SetActive(value);
             hasSeaweed = value;
             //
         }
@@ -115,7 +118,6 @@ public class Player : Characters
             Vector2 armScale = arm.transform.localScale;
             armScale.y = 1;
             arm.transform.localScale = armScale;
-
         }
         else
         {
@@ -162,7 +164,6 @@ public class Player : Characters
             if (Input.GetKeyDown(KeyCode.E))
             {
                 HasSeaWeed = true;
-                Debug.Log("hasweed");
             }
         }
     }
