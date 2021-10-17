@@ -91,19 +91,11 @@ MonoBehaviour:
   soundSlider: {fileID: 0}
   volMultiplier: 30
   soundClips:
-  - clipName: E01_attack
-    clip: {fileID: 8300000, guid: 2ab5905619df88d4b8d7e6c403377f01, type: 3}
-  - clipName: E_01_die
-    clip: {fileID: 8300000, guid: 6edaaa826861afb42aeddc44fc06a1e6, type: 3}
-  - clipName: glasshit
-    clip: {fileID: 8300000, guid: 1491c4fe180d8494c84486e59ab36d4d, type: 3}
-  - clipName: player_hurt
-    clip: {fileID: 8300000, guid: b879dbc93d50e4c41ba72310251da152, type: 3}
+  - clipName: PlayerVoice
+    clip: {fileID: 8300000, guid: 34d8045f6731edd4abb2b2894ff146f4, type: 3}
   musicClips:
-  - clipName: MainMusic
-    clip: {fileID: 8300000, guid: a7f460e3129efcd4782dabd8b05538c2, type: 3}
-  - clipName: MainMenu
-    clip: {fileID: 8300000, guid: 905e85150945ed94198ed9a69f5d35ea, type: 3}
+  - clipName: InGameMusic
+    clip: {fileID: 8300000, guid: bd3272a8d0a6e124096b7d1fce67c54e, type: 3}
 --- !u!1 &1498102638670168211
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,8 +136,8 @@ AudioSource:
   m_GameObject: {fileID: 1498102638670168211}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -7795344750329091465, guid: 78b06932f42171b46aac831518760d28, type: 2}
-  m_audioClip: {fileID: 8300000, guid: a7f460e3129efcd4782dabd8b05538c2, type: 3}
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -276,7 +268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   fishTank: {fileID: 0}
-  gameState: 1
+  gameState: 0
 --- !u!1 &1498102639082492776
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,7 +309,7 @@ AudioSource:
   m_GameObject: {fileID: 1498102639082492776}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 9128594056345628364, guid: 78b06932f42171b46aac831518760d28, type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -494,15 +486,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pools:
+  - name: Enemy
+    tag: 0
+    prefab: {fileID: 0}
+    size: 0
   - name: Laser
     tag: 1
     prefab: {fileID: 5968261771548513147, guid: d077542163f712240974ee44d97e29c8, type: 3}
     size: 30
-  - name: Death1
-    tag: 2
-    prefab: {fileID: 4126910529899458182, guid: 50b227d43619cae4191d18cfbc24c3db, type: 3}
-    size: 5
-  - name: Death2
-    tag: 3
-    prefab: {fileID: 1312341047943324076, guid: de8a8d5a347da6040ab1537ac7e8be58, type: 3}
-    size: 5

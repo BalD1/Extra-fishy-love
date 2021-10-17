@@ -50,6 +50,9 @@ public class UIManager : MonoBehaviour
 
                 break;
 
+            case GameManager.GameStates.intro:
+                break;
+
             case GameManager.GameStates.InGame:
                 if(GameManager.Instance.GameState == GameManager.GameStates.Pause)
                     pauseMenu.SetActive(false);
