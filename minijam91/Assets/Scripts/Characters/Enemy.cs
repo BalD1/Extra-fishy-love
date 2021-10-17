@@ -10,7 +10,10 @@ public class Enemy : Characters
     [SerializeField] private int chancesToTargetFishtank = 5;
     [SerializeField] private float minDistanceBeforeAttack;
     [SerializeField] private bool showDistance = true;
+    [SerializeField] private GameObject bloodOnDeath;
     private Transform target;
+
+    [SerializeField] [HideInInspector] private bool playSound;
 
     private enum EnemyState
     {
@@ -44,6 +47,8 @@ public class Enemy : Characters
 
     private void EnemyDeath()
     {
+        Instantiate(bloodOnDeath, this.transform.position, Quaternion.identity);
+        AudioManager.Instance.Play2DSound(AudioManager.ClipsTags.E_01_die);
         Destroy(root);
     }
 
@@ -66,6 +71,14 @@ public class Enemy : Characters
             state = EnemyState.Moving;
         }
         animator.SetTrigger("attack");
+
+        if(playSound)
+            PlayAttackSound();
+    }
+
+    private void PlayAttackSound()
+    {
+        AudioManager.Instance.Play2DSound(AudioManager.ClipsTags.E01_attack);
     }
 
     private void CheckDistance()

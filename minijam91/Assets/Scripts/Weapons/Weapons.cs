@@ -6,6 +6,9 @@ public class Weapons : MonoBehaviour
 {
     [SerializeField] private WeaponScriptable weapon;
     [SerializeField] private GameObject firePoint;
+    [SerializeField] private ParticleSystem burst;
+    [SerializeField] private ParticleSystem bubbles;
+    [SerializeField] private AudioSource piou;
     private WeaponScriptable.stats weaponStats;
 
     private bool canFire;
@@ -28,6 +31,9 @@ public class Weapons : MonoBehaviour
         {
             if(Input.GetMouseButton(0))
             {
+                burst.Play();
+                bubbles.Play();
+                piou.Play();
                 canFire = false;
                 Projectile firedProjectile = PoolManager.Instance.SpawnFromPool(PoolManager.tags.Laser, firePoint.transform.position, this.transform.rotation).GetComponent<Projectile>();
                 firedProjectile.damagesToInflict = weaponStats.damages;

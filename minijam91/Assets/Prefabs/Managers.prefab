@@ -93,6 +93,14 @@ MonoBehaviour:
   soundClips:
   - clipName: PlayerVoice
     clip: {fileID: 8300000, guid: 34d8045f6731edd4abb2b2894ff146f4, type: 3}
+  - clipName: E01_attack
+    clip: {fileID: 8300000, guid: 2ab5905619df88d4b8d7e6c403377f01, type: 3}
+  - clipName: E_01_die
+    clip: {fileID: 8300000, guid: 6edaaa826861afb42aeddc44fc06a1e6, type: 3}
+  - clipName: glasshit
+    clip: {fileID: 8300000, guid: 1491c4fe180d8494c84486e59ab36d4d, type: 3}
+  - clipName: player_hurt
+    clip: {fileID: 8300000, guid: b879dbc93d50e4c41ba72310251da152, type: 3}
   musicClips:
   - clipName: InGameMusic
     clip: {fileID: 8300000, guid: bd3272a8d0a6e124096b7d1fce67c54e, type: 3}
@@ -137,7 +145,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c5d9248269c6be94fa7471bdf71118d0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -486,11 +494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pools:
-  - name: Enemy
-    tag: 0
-    prefab: {fileID: 0}
-    size: 0
   - name: Laser
     tag: 1
     prefab: {fileID: 5968261771548513147, guid: d077542163f712240974ee44d97e29c8, type: 3}
-    size: 30
+    size: 20

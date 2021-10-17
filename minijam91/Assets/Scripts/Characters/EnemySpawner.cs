@@ -25,9 +25,8 @@ public class EnemySpawner : MonoBehaviour
 
         direction = targetPos;
 
-        spawnTimer = Random.Range(minSpawnTime, maxSpawnTime);
+        spawnTimer = maxSpawnTime * 2;
 
-        SpawnEnemy();
     }
 
     private void Update()
