@@ -21,11 +21,6 @@ namespace DialogueSystem
         private Text textHolder;
         private IEnumerator lineAppear;
 
-        private void Awake()
-        {
-
-        }
-
         private void OnEnable()
         {
             ResetLine();
