@@ -4128,10 +4128,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -10.896
       objectReference: {fileID: 0}
-    - target: {fileID: 5807363100983477116, guid: b8c6325bbccdc0d4eb519816ebdc7201, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5807363101628219197, guid: b8c6325bbccdc0d4eb519816ebdc7201, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4927,22 +4923,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 26022537, guid: c95d445173fe69347b469a166d0b4ecd, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 122041143, guid: c95d445173fe69347b469a166d0b4ecd, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 122041144, guid: c95d445173fe69347b469a166d0b4ecd, type: 3}
-      propertyPath: m_FlipY
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 122041144, guid: c95d445173fe69347b469a166d0b4ecd, type: 3}
-      propertyPath: m_SortingOrder
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 1176347119546297450, guid: c95d445173fe69347b469a166d0b4ecd, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4950,10 +4930,6 @@ PrefabInstance:
     - target: {fileID: 1176347119546297450, guid: c95d445173fe69347b469a166d0b4ecd, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5624778842669262179, guid: c95d445173fe69347b469a166d0b4ecd, type: 3}
-      propertyPath: m_SortingOrder
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7470620901475900932, guid: c95d445173fe69347b469a166d0b4ecd, type: 3}
       propertyPath: m_Name
@@ -4966,10 +4942,6 @@ PrefabInstance:
     - target: {fileID: 7470620901475900934, guid: c95d445173fe69347b469a166d0b4ecd, type: 3}
       propertyPath: m_RootOrder
       value: 23
-      objectReference: {fileID: 0}
-    - target: {fileID: 7470620901475900934, guid: c95d445173fe69347b469a166d0b4ecd, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7470620901475900934, guid: c95d445173fe69347b469a166d0b4ecd, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8016,10 +7988,6 @@ PrefabInstance:
       propertyPath: soundSlider
       value: 
       objectReference: {fileID: 838394723}
-    - target: {fileID: 1498102638670168209, guid: 2f40dd409e1fd4c4d800e39df1e75111, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: a7f460e3129efcd4782dabd8b05538c2, type: 3}
     - target: {fileID: 1498102638872257843, guid: 2f40dd409e1fd4c4d800e39df1e75111, type: 3}
       propertyPath: player
       value: 

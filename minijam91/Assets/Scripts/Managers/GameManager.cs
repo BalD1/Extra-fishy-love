@@ -68,6 +68,9 @@ public class GameManager : MonoBehaviour
 
                 case GameStates.InGame:
 
+                    if (gameState != GameStates.Pause)
+                        AudioManager.Instance.PlayMusic(AudioManager.ClipsTags.MainTheme);
+
                     if (gameState == GameStates.MainMenu && SceneName.Equals("MainMenu"))
                         SceneManager.LoadScene("MainScene");
 
@@ -85,6 +88,8 @@ public class GameManager : MonoBehaviour
                     break;
                 case GameStates.Intro:
                     Time.timeScale = 1;
+
+                    AudioManager.Instance.PlayMusic(AudioManager.ClipsTags.MainMenu);
                     if (!DataKeep.playIntro)
                     {
                         if (cinematicEnder != null)

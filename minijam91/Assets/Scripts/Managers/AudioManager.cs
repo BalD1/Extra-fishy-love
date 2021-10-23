@@ -293,7 +293,9 @@ public class AudioManager : MonoBehaviour
     {
         string musicToPlay = GameManager.Instance.gameState.ToString();
 
-        if(musicFlag == false)
+        musicSource.Stop();
+        musicFlag = false;
+        if (musicFlag == false)
         {
             musicFlag = true;
             foreach(MusicClips music in musicClips)
@@ -306,8 +308,6 @@ public class AudioManager : MonoBehaviour
             else
                 Debug.LogError("Music not found for " + "\"" + GameManager.Instance.gameState + "\"" + " state of game.");
         }
-        else
-            Debug.LogError("A music is already playing.");
     }
     /// <summary>
     /// Plays a chosen music. The audio source should be located in the AudioManager
@@ -315,6 +315,8 @@ public class AudioManager : MonoBehaviour
     /// <param name="searchedMusic"></param>
     public void PlayMusic(ClipsTags searchedMusic)
     {
+        musicSource.Stop();
+        musicFlag = false;
         if(musicFlag == false)
         {
             musicFlag = true;
@@ -328,8 +330,6 @@ public class AudioManager : MonoBehaviour
             else
                 Debug.LogError(searchedMusic + " not found in Music Clips.");
         }
-        else
-            Debug.LogError("A music is already playing.");
     }
 
     /// <summary>
