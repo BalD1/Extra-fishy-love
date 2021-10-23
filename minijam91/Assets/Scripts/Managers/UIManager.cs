@@ -50,7 +50,42 @@ public class UIManager : MonoBehaviour
             float animTime = GameManager.Instance.GetAnimationLength(titleAnimator, "TitleAnim");
             StartCoroutine(WaitForTitleAnimation(animTime));
         }
+    }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (GameManager.Instance.GameState == GameManager.GameStates.InGame ||
+                GameManager.Instance.GameState == GameManager.GameStates.Pause)
+            Pause();
+            else if (GameManager.Instance.GameState == GameManager.GameStates.MainMenu)
+            {
+                if (OptionsMenu.activeSelf)
+                {
+                    OptionsMenu.SetActive(false);
+                    menu.SetActive(true);
+                }
+                else if (title.activeSelf)
+                {
+                    title.SetActive(false);
+                    menu.SetActive(true);
+                }
+            }
+        }
+    }
+
+    private void Pause()
+    {
+        if (GameManager.Instance.GameState == GameManager.GameStates.InGame)
+            GameManager.Instance.GameState = GameManager.GameStates.Pause;
+        else if (GameManager.Instance.GameState == GameManager.GameStates.Pause)
+        {
+            if (OptionsMenu.activeSelf)
+                OptionsMenu.SetActive(false);
+            else
+                GameManager.Instance.GameState = GameManager.GameStates.InGame;
+        }
     }
 
     private IEnumerator WaitForTitleAnimation(float time)
@@ -75,7 +110,7 @@ public class UIManager : MonoBehaviour
 
                 break;
 
-            case GameManager.GameStates.intro:
+            case GameManager.GameStates.Intro:
                 break;
 
             case GameManager.GameStates.InGame:

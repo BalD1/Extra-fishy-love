@@ -34,15 +34,25 @@ public class Enemy : Characters
             
         _Death += EnemyDeath;
         CallStart();
+        GameManager.Instance._GameStart += OnGameStart;
+    }
+
+    private void OnGameStart()
+    {
+        if (this != null)
+            Destroy(this.gameObject);
     }
 
     private void FixedUpdate()
     {
-        CheckDistance();
-        MoveToTarget(target);
-        TranslateHUD();
-        if(state.Equals(EnemyState.Attacking))
-            Attack();
+        if (GameManager.Instance.GameState == GameManager.GameStates.InGame)
+        {
+            CheckDistance();
+            MoveToTarget(target);
+            TranslateHUD();
+            if (state.Equals(EnemyState.Attacking))
+                Attack();
+        }
     }
 
     private void EnemyDeath()

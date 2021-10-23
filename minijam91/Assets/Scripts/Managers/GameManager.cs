@@ -25,12 +25,17 @@ public class GameManager : MonoBehaviour
     public GameObject FishTank { get => fishTank; }
     public string SceneName { get => SceneManager.GetActiveScene().name; }
 
+    public delegate void GameStart();
+    public GameStart _GameStart;
+
+    [SerializeField] private GameObject cinematicEnder;
+
     #region GameStates
 
     public enum GameStates
     {
         MainMenu,
-        intro,
+        Intro,
         InGame,
         Pause,
         Win,
@@ -55,17 +60,17 @@ public class GameManager : MonoBehaviour
                 case GameStates.MainMenu:
                     if(gameState != GameStates.MainMenu && !SceneName.Equals("MainMenu"))
                         SceneManager.LoadScene("MainMenu");
+                    
+                    DataKeep.playIntro = true;
 
                     Time.timeScale = 1;
                     break;
 
                 case GameStates.InGame:
-                    if (gameState == GameStates.MainMenu && SceneName.Equals("MainMenu"))
-                        SceneManager.LoadScene("Intro1");
 
-                    if (gameState == GameStates.Pause)
-                    {
-                    }
+                    if (gameState == GameStates.MainMenu && SceneName.Equals("MainMenu"))
+                        SceneManager.LoadScene("MainScene");
+
                         Time.timeScale = 1;
                     break;
 
@@ -78,12 +83,21 @@ public class GameManager : MonoBehaviour
 
                     Time.timeScale = 0;
                     break;
-
+                case GameStates.Intro:
+                    Time.timeScale = 1;
+                    if (!DataKeep.playIntro)
+                    {
+                        if (cinematicEnder != null)
+                            cinematicEnder.SetActive(true);
+                    }
+                    DataKeep.playIntro = false;
+                    break;
                 case GameStates.Gameover:
 
                     Time.timeScale = 0;
                     break;
                 case GameStates.Cinematic:
+
                     Time.timeScale = 0;
                     break;
 
@@ -108,8 +122,9 @@ public class GameManager : MonoBehaviour
         if(SceneName.Equals("MainMenu"))
             GameState = GameStates.MainMenu;
         else
-            GameState = GameStates.InGame;
+            GameState = GameStates.Intro;
     }
+
     public float GetAnimationLength(Animator animator, string searchedAnimation)
     {
         AnimationClip[] clips = animator.runtimeAnimatorController.animationClips;
@@ -141,5 +156,4 @@ public class GameManager : MonoBehaviour
         //
         Application.Quit();
     }
-
 }

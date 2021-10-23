@@ -30,19 +30,7 @@ namespace DialogueSystem
 
         private void Update()
         {
-            if (Input.GetMouseButtonDown(0) || (Input.GetKeyDown("return")))
-            {
-                //Should change that to "speeds up text", it would be cooler
-                if(textHolder.text != "* " + input)
-                {
-                    StopCoroutine(lineAppear);
-                    textHolder.text = "* " + input;
-                }
-                else
-                {
-                    finished = true;
-                }
-            }
+
         }
 
         private void ResetLine()

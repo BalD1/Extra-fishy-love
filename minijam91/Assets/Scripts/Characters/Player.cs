@@ -35,9 +35,11 @@ public class Player : Characters
     private Vector2 direction;
     private Vector3 mousePosition;
     private Vector3 selfPosByCam;
+    private Vector3 basePos;
 
     private void Start()
     {
+        basePos = this.transform.position;
         if(mainCamera == null)
             mainCamera = Camera.main;
 
@@ -52,8 +54,6 @@ public class Player : Characters
     {
         if (GameManager.Instance.GameState == GameManager.GameStates.InGame)
         {
-            if(Input.GetKeyDown(KeyCode.Escape))
-                Pause();
 
             if(Input.GetButton("Jump") || Input.GetKey(KeyCode.UpArrow))
                 Jump();
@@ -134,19 +134,6 @@ public class Player : Characters
     }
 
     #endregion
-
-    private void Pause()
-    {
-        if(GameManager.Instance.GameState == GameManager.GameStates.InGame)
-            GameManager.Instance.GameState = GameManager.GameStates.Pause;
-        else if(GameManager.Instance.GameState == GameManager.GameStates.Pause)
-        {
-            if(UIManager.Instance.OptionsMenu.activeSelf)
-                UIManager.Instance.OptionsMenu.SetActive(false);
-            else
-                GameManager.Instance.GameState = GameManager.GameStates.InGame;
-        }
-    }
 
     private void DamagesTaken()
     {

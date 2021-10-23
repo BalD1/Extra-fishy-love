@@ -11,6 +11,16 @@ public class Projectile : MonoBehaviour
 
     [HideInInspector] public int damagesToInflict;
 
+    private void Start()
+    {
+        GameManager.Instance._GameStart += OnGameStart;
+    }
+
+    private void OnGameStart()
+    {
+        this.gameObject.SetActive(false);
+    }
+
     void Update()
     {
         this.transform.Translate(Vector2.right * speed * Time.deltaTime); 

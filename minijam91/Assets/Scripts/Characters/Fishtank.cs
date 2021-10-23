@@ -28,9 +28,21 @@ public class Fishtank : Characters
         timeBeforeFishDies = GameManager.Instance.GetAnimationLength(fishAnimator, "BubbleAnim");
         timerBeforeFishDies = timeBeforeFishDies;
         CallStart();
-        StartCoroutine(AskTimer(maxTimeBeforeAsk));
+
+        GameManager.Instance._GameStart += OnGameStart;
+
         _Death += FishtankDeath;
         _TookDamages += BreakAnimation;
+    }
+
+    private void OnGameStart()
+    {
+        StopAllCoroutines();
+        bubble.SetActive(false);
+        isAsking = false;
+        timerBeforeFishDies = timeBeforeFishDies;
+        this.Heal(characterStats.maxHP);
+        StartCoroutine(AskTimer(maxTimeBeforeAsk));
     }
 
     private void Update()

@@ -15,21 +15,26 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private int timesToReduceSpawnTime;
     private float spawnTimer;
 
+    private float baseMinSpawnTime, baseMaxSpawnTime;
+
     [SerializeField] private float speed;
 
     [SerializeField] private Transform basePos;
     [SerializeField] private Transform targetPos;
     private Transform direction;
 
+    private bool reduceTimeFlag = false;
+
     private void Start()
     {
         if(basePos == null)
             basePos = this.transform;
 
-        direction = targetPos;
+        baseMinSpawnTime = minSpawnTime;
+        baseMinSpawnTime = maxSpawnTime;
 
+        direction = targetPos;
         spawnTimer = maxSpawnTime * 2;
-        StartCoroutine(ReduceSpawnTime(timeBeforeReduce, --timesToReduceSpawnTime));
     }
 
     private void Update()
@@ -40,6 +45,12 @@ public class EnemySpawner : MonoBehaviour
             spawnTimer = spawnTimer - Time.deltaTime;
             if(spawnTimer <= 0)
                 SpawnEnemy();
+            if (!reduceTimeFlag)
+            {
+                StartCoroutine(ReduceSpawnTime(timeBeforeReduce, --timesToReduceSpawnTime));
+                reduceTimeFlag = true;
+            }
+
         }
     }
 
