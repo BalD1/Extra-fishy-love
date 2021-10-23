@@ -4,43 +4,34 @@ using UnityEngine;
 
 public class Weapons : MonoBehaviour
 {
-    [SerializeField] private WeaponScriptable weapon;
-    [SerializeField] private GameObject firePoint;
-    [SerializeField] private ParticleSystem burst;
-    [SerializeField] private ParticleSystem bubbles;
-    [SerializeField] private AudioSource piou;
-    private WeaponScriptable.stats weaponStats;
+    [SerializeField] protected WeaponScriptable weapon;
+    [SerializeField] protected GameObject firePoint;
+    [SerializeField] protected ParticleSystem burst;
+    [SerializeField] protected ParticleSystem bubbles;
+    [SerializeField] protected AudioSource piou;
+    protected WeaponScriptable.stats weaponStats;
 
-    private bool canFire;
+    protected bool canFire;
 
-    private void Start()
+    protected void CallStart()
     {
         weaponStats = weapon.WeaponStats;
         canFire = true;
     }
-
-    private void Update()
+    protected void CallOnEnable()
     {
-        if(GameManager.Instance.GameState == GameManager.GameStates.InGame)
-            Fire();
+        StopAllCoroutines();
+        canFire = true;
     }
 
-    public void Fire()
+    protected void OnFireEvents()
     {
-        if(canFire)
-        {
-            if(Input.GetMouseButton(0))
-            {
-                burst.Play();
-                bubbles.Play();
-                piou.Play();
-                canFire = false;
-                Projectile firedProjectile = PoolManager.Instance.SpawnFromPool(PoolManager.tags.Laser, firePoint.transform.position, this.transform.rotation).GetComponent<Projectile>();
-                firedProjectile.damagesToInflict = weaponStats.damages;
+        burst.Play();
+        bubbles.Play();
+        piou.Play();
+        canFire = false;
 
-                StartCoroutine(fireTimer(weaponStats.fireRate));
-            }
-        }
+        StartCoroutine(fireTimer(weaponStats.fireRate));
     }
 
     private IEnumerator fireTimer(float time)
@@ -54,5 +45,6 @@ public class Weapons : MonoBehaviour
     {
         weapon.PrintWeapon(weaponStats);
     }
+
     #endregion
 }

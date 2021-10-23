@@ -8,10 +8,14 @@ public class Player : Characters
     [Header("Player Related")]
     [SerializeField] private GameObject arm;
     [SerializeField] private SpriteRenderer secondArm;
-    [SerializeField] private SpriteRenderer currentWeaponRenderer;
     [SerializeField] private SpriteRenderer armRenderer;
-    [SerializeField] private GameObject weapon;
     [SerializeField] private GameObject seaWeed;
+    [SerializeField] private GameObject weaponHandler;
+    [SerializeField] private GameObject currentWeapon;
+    [SerializeField] private SpriteRenderer currentWeaponRenderer;
+    private int currentWeaponIndex = 0;
+
+    [SerializeField] private List<GameObject> unlockedWeapons;
 
 
     private int playerSpriteOrder;
@@ -40,8 +44,21 @@ public class Player : Characters
     private void Start()
     {
         basePos = this.transform.position;
-        if(mainCamera == null)
+        if (mainCamera == null)
             mainCamera = Camera.main;
+
+        for (int i = 0; i < unlockedWeapons.Count; i++)
+        {
+            GameObject weapon = Instantiate(unlockedWeapons[i], weaponHandler.transform);
+            if (i != 0)
+                weapon.SetActive(false);
+        }
+        currentWeaponIndex = 0;
+        currentWeapon = weaponHandler.transform.GetChild(currentWeaponIndex).gameObject;
+        currentWeapon.SetActive(true);
+
+        if (this.currentWeaponRenderer == null)
+            this.currentWeaponRenderer = this.currentWeapon.GetComponentInChildren<SpriteRenderer>();
 
         playerSpriteOrder = this.sprite.sortingOrder;
         CallStart();
@@ -67,6 +84,11 @@ public class Player : Characters
                     HasSeaWeed = true;
                 }
             }
+
+            if (Input.GetKeyDown(KeyCode.E))
+                NextWeapon();
+            if (Input.GetKeyDown(KeyCode.Q))
+                PreviousWeapon();
         }
 
         if(Input.GetKeyDown(KeyCode.R))
@@ -79,6 +101,49 @@ public class Player : Characters
         {
             Movements();
         }
+    }
+
+    private void NextWeapon()
+    {
+        if (currentWeaponIndex == unlockedWeapons.Count - 1)
+            ChangeWeapon(0);
+        else
+        {
+            for (int i = 0; i < unlockedWeapons.Count; i++)
+            {
+                if (i == (currentWeaponIndex + 1))
+                {
+                    ChangeWeapon(i);
+                    return;
+                }
+            }
+        }
+    }
+
+    private void PreviousWeapon()
+    {
+        if (currentWeaponIndex == 0)
+            ChangeWeapon(unlockedWeapons.Count - 1);
+        else
+        {
+            for (int i = unlockedWeapons.Count - 1; i >= 0; i--)
+            {
+                if (i == (currentWeaponIndex - 1))
+                {
+                    ChangeWeapon(i);
+                    return;
+                }
+            }
+        }
+    }
+
+    private void ChangeWeapon(int index)
+    {
+        currentWeapon.SetActive(false);
+
+        currentWeaponIndex = index;
+        currentWeapon = weaponHandler.transform.GetChild(index).gameObject;
+        currentWeapon.SetActive(true);
     }
 
     #region Movements
