@@ -3918,6 +3918,10 @@ PrefabInstance:
       propertyPath: soundSlider
       value: 
       objectReference: {fileID: 2072960433}
+    - target: {fileID: 1498102638670168209, guid: 2f40dd409e1fd4c4d800e39df1e75111, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 905e85150945ed94198ed9a69f5d35ea, type: 3}
     - target: {fileID: 1498102639367037145, guid: 2f40dd409e1fd4c4d800e39df1e75111, type: 3}
       propertyPath: menu
       value: 
